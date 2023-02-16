@@ -15,7 +15,7 @@ class App extends React.Component {
 	}
 	
 	componentDidMount() {
-		fetch("https://pi-backend-rose.vercel.app/min")
+		fetch("https://pi-backend-bt5mbx1ej-conmou.vercel.app/min")
 			.then((res) => res.json())
 			.then((json) => {
 				this.setState({
@@ -56,7 +56,18 @@ class App extends React.Component {
           <Line type="monotone" dataKey="hunidity" stroke="#ff7300" />
         </ComposedChart>
 
-
+		<div className="Chart">
+				<LineChart width={600} height={300} data={ items } >
+					<Line type="monotone" dataKey='temp' stroke='#91B493' strokeWidth={3}/>
+					<Line type="monotone" dataKey='hunidity' stroke='#FFCA29' strokeWidth={3}/>
+					<CartesianGrid stroke='#D7C4BB' strokeDasharray="5 5" strokeWidth={2}/>
+					<XAxis dataKey='date' stroke='#D7C4BB' strokeWidth={5}/>
+					<YAxis type="number" domain={[0, 100]} stroke='#D7C4BB' strokeWidth={5}/>
+					<Tooltip/>
+					<Legend/>
+				</LineChart>
+		</div>
+		
                 <div className='textDiv'>
                     <p className='Temptext'>溫度：{items[items.length-1].temp}</p>
                     <p className='Humtext'>濕度：{items[items.length-1].hunidity}</p>
@@ -129,17 +140,17 @@ export default App;
 // 					<Tooltip/>
 // 					<Legend/>
 // 				</BarChart>
-// 			<div className="Chart">
-// 				<LineChart width={600} height={300} data={ items } >
-// 					<Line type="monotone" dataKey='temp' stroke='#91B493' strokeWidth={3}/>
-// 					<Line type="monotone" dataKey='hunidity' stroke='#FFCA29' strokeWidth={3}/>
-// 					<CartesianGrid stroke='#D7C4BB' strokeDasharray="5 5" strokeWidth={2}/>
-// 					<XAxis dataKey='date' stroke='#D7C4BB' strokeWidth={5}/>
-// 					<YAxis type="number" domain={[0, 100]} stroke='#D7C4BB' strokeWidth={5}/>
-// 					<Tooltip/>
-// 					<Legend/>
-// 				</LineChart>
-// 			</div> */}
+			// <div className="Chart">
+			// 	<LineChart width={600} height={300} data={ items } >
+			// 		<Line type="monotone" dataKey='temp' stroke='#91B493' strokeWidth={3}/>
+			// 		<Line type="monotone" dataKey='hunidity' stroke='#FFCA29' strokeWidth={3}/>
+			// 		<CartesianGrid stroke='#D7C4BB' strokeDasharray="5 5" strokeWidth={2}/>
+			// 		<XAxis dataKey='date' stroke='#D7C4BB' strokeWidth={5}/>
+			// 		<YAxis type="number" domain={[0, 100]} stroke='#D7C4BB' strokeWidth={5}/>
+			// 		<Tooltip/>
+			// 		<Legend/>
+			// 	</LineChart>
+			// </div> */}
 
 // 	// fetch('http://localhost:5001/).then(res=>
 // 	//     return res.json()

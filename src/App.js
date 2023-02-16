@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { CartesianAxis, CartesianGrid, Legend, Line, LineChart, XAxis, YAxis, Tooltip, BarChart, Bar, ResponsiveContainer, ComposedChart, Area} from 'recharts';
 //import { Tooltip } from 'chart.js';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
 	
@@ -16,6 +17,7 @@ class App extends React.Component {
 	
 	componentDidMount() {
 		fetch("https://pi-backend-bt5mbx1ej-conmou.vercel.app/min")
+		// fetch("http://localhost:5001/min")
 			.then((res) => res.json())
 			.then((json) => {
 				this.setState({
@@ -33,49 +35,72 @@ class App extends React.Component {
             </div>  ;
         // const sort = items.sort(sortData)
         return [
-            <div className = "App"  >
-                <h1> get api success </h1> {
-                items.map((item) => (
-                <ol key = { item.id } >
-                    temp: { item.temp },
-                    hunidity: { item.hunidity},
-                    date: { item.date },
-                    TS: {item.TS},
-					min: {item.time}
-                </ol>
-                ))
-                }
-
-        <ComposedChart width={1000} height={400} data={items} margin={{top: 20,right: 20,bottom: 20,left: 20,}}>
-          <CartesianGrid stroke="#f5f5f5" />
-          <XAxis dataKey="time" scale="band" />
-          <YAxis domain={[0, 100]}/>
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="temp" barSize={20} fill="#413ea0" />
-          <Line type="monotone" dataKey="hunidity" stroke="#ff7300" />
-        </ComposedChart>
-
-		<div className="Chart">
-				<LineChart width={600} height={300} data={ items } >
-					<Line type="monotone" dataKey='temp' stroke='#91B493' strokeWidth={3}/>
-					<Line type="monotone" dataKey='hunidity' stroke='#FFCA29' strokeWidth={3}/>
-					<CartesianGrid stroke='#D7C4BB' strokeDasharray="5 5" strokeWidth={2}/>
-					<XAxis dataKey='date' stroke='#D7C4BB' strokeWidth={5}/>
-					<YAxis type="number" domain={[0, 100]} stroke='#D7C4BB' strokeWidth={5}/>
-					<Tooltip/>
-					<Legend/>
-				</LineChart>
-		</div>
-		
-                <div className='textDiv'>
-                    <p className='Temptext'>溫度：{items[items.length-1].temp}</p>
-                    <p className='Humtext'>濕度：{items[items.length-1].hunidity}</p>
-                </div>
+            <div class="container" className="App">
+				<div class="row" className='showbg'>
+					<div className="content">
+						<h2>T&H</h2>
+						<h2>T&H</h2>
+					</div>
+                {/* <h1> get api success </h1> {
+					items.map((item) => (
+					<ol key = { item.id } >
+						temp: { item.temp },
+						hunidity: { item.hunidity},
+						date: { item.date },
+						TS: {item.TS},
+						min: {item.time}
+					</ol>
+					))
+                } */}
+					{/* <div className='Title'>樹 莓 派 溫 濕 度 實 作</div> */}
+					<div class="d-flex justify-content-evenly">
+						<div class="col-3">
+							<div class='mt-5'>
+								{/* <img src='image/heat.png'/> */}
+								<p className='Ttitle'>Temperature</p>
+								<div class='d-flex justify-content-between'>
+									<img src={require('./image/heat.png')} />
+									<p className='Ttext'>{items[items.length-1].temp}</p>
+									<p className='Tunit'>°C</p>
+								</div>
+							</div>
+							<hr className="hr"/>
+							<div>
+								<p className='Htitle'>Humidity</p>
+								<div class='d-flex justify-content-between'>
+								<img src={require('./image/humidity.png')} />
+									<p className='Htext'>{items[items.length-1].hunidity}</p>
+									<p className='Hunit'>％</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-9 mt-5">
+							<ComposedChart width={800} height={500} data={items}>
+								<CartesianGrid stroke="#FFDEA5" strokeDasharray="5 5"/>
+								<XAxis dataKey="time" stroke='#FFDEA5' strokeWidth={5}/>
+								<YAxis domain={[0, 30]} stroke='#FFDEA5' strokeWidth={5}/>
+								<Tooltip />
+								<Legend />
+								<Bar dataKey="temp" barSize={20} fill="#91B493" />
+								<Line type="monotone" dataKey="hunidity" stroke="#FFCA29" strokeWidth={3}/>
+							</ComposedChart>
+						</div>
+						{/* <div class="col">
+							<LineChart width={600} height={300} data={ items } >
+								<Line type="monotone" dataKey='temp' stroke='#91B493' strokeWidth={3}/>
+								<Line type="monotone" dataKey='hunidity' stroke='#FFCA29' strokeWidth={3}/>
+								<CartesianGrid stroke='#D7C4BB' strokeDasharray="5 5" strokeWidth={2}/>
+								<XAxis dataKey='date' stroke='#D7C4BB' strokeWidth={5}/>
+								<YAxis type="number" domain={[0, 100]} stroke='#D7C4BB' strokeWidth={5}/>
+								<Tooltip/>
+								<Legend/>
+							</LineChart>
+						</div> */}
+					</div>
+				</div>
             </div>
         ];
   }
-
 }
 
 export default App;

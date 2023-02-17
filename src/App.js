@@ -55,18 +55,6 @@ class App extends React.Component {
 						<h4>T&H</h4>
 						<h4>T&H</h4>
 					</div>
-                {/* <h1> get api success </h1> {
-					items.map((item) => (
-					<ol key = { item.id } >
-						temp: { item.temp },
-						hunidity: { item.hunidity},
-						date: { item.date },
-						TS: {item.TS},
-						min: {item.time}
-					</ol>
-					))
-                } */}
-					{/* <div className='Title'>樹 莓 派 溫 濕 度 實 作</div> */}
 					<div class="row">
 						<div class="col-md-4">
 							<div >
@@ -88,30 +76,20 @@ class App extends React.Component {
 								</div>
 							</div>
 						</div>
-						<div class="col-md-8"  >
+						<div class="col-md-8">
 							<ResponsiveContainer width="100%" height="100%" >
 								<ComposedChart  data={items}>
 									<CartesianGrid stroke="#FFDEA5" strokeDasharray="5 5"/>
 									<XAxis dataKey="time" stroke='#FFDEA5' strokeWidth={5}/>
-									<YAxis domain={[0, 30]} stroke='#FFDEA5' strokeWidth={5}/>
-									<Tooltip />
+									<YAxis unit='°C' yAxisId="left-axis" dataKey='temp' domain={[0, 50]} stroke='#FFDEA5' strokeWidth={5} allowDataOverflow/>
+									<YAxis unit='％' yAxisId="right-axis" dataKey='hunidity' domain={[0, 100]} orientation='right' stroke='#FFDEA5' strokeWidth={5}/>
+									<Tooltip separator='=' />
 									<Legend />
-									<Bar dataKey="temp" barSize={20} fill="#91B493" />
-									<Line type="monotone" dataKey="hunidity" stroke="#FFCA29" strokeWidth={3}/>
+									<Bar yAxisId="left-axis" dataKey="temp" barSize={20} fill="#91B493" />
+									<Line yAxisId="right-axis" type="monotone" dataKey="hunidity" stroke="#FFCA29" strokeWidth={3}/>
 								</ComposedChart>
 							</ResponsiveContainer>
 						</div>
-						{/* <div class="col">
-							<LineChart width={600} height={300} data={ items } >
-								<Line type="monotone" dataKey='temp' stroke='#91B493' strokeWidth={3}/>
-								<Line type="monotone" dataKey='hunidity' stroke='#FFCA29' strokeWidth={3}/>
-								<CartesianGrid stroke='#D7C4BB' strokeDasharray="5 5" strokeWidth={2}/>
-								<XAxis dataKey='date' stroke='#D7C4BB' strokeWidth={5}/>
-								<YAxis type="number" domain={[0, 100]} stroke='#D7C4BB' strokeWidth={5}/>
-								<Tooltip/>
-								<Legend/>
-							</LineChart>
-						</div> */}
 					</div>
 				</div>
             </div>

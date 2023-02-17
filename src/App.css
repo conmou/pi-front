@@ -2,6 +2,7 @@
   text-align: center;
   padding: 5%;
   background: linear-gradient(215.21deg, #50647C 12.73%, #4F4E4D 66.22%, #484037 85.32%);
+  min-height: 980px;
   /* background: linear-gradient(211.82deg, #50647C 11.79%, #3E3848 85.5%); */
 }
 
@@ -59,7 +60,7 @@
 
 .Tunit{
   color: #C2C2C2;
-  font-size: 8vmin;
+  font-size: 50px;
   /* font-weight: bold; */
   padding-top: 50px;
 }

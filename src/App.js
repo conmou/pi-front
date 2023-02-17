@@ -34,6 +34,20 @@ class App extends React.Component {
                 <h1> no no conmou </h1> 
             </div>  ;
         // const sort = items.sort(sortData)
+		// for (let index = 0; index < items.length; index++) {
+		// 	const element = items[index];
+		// 	// items.forEach(element => {
+		// 	// 	element
+		// 	// });
+		// 	return <ol key = { element.id } >
+		// 	temp: { element.temp },
+		// 	hunidity: { element.hunidity},
+		// 	date: { element.date },
+		// 	TS: {element.TS},
+		// 	min: {element.time}
+		// 	</ol>
+		// }
+
         return [
             <div class="container" className="App">
 				<div class="row" className='showbg'>

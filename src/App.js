@@ -6,7 +6,6 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import DarkMode from "./DarkMode"
 
 class App extends React.Component {
-	
 	// Constructor
 	constructor(props) {
 		super(props);

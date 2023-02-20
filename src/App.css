@@ -1,18 +1,18 @@
 :root {
   --blue: linear-gradient(215.21deg, #50647C 12.73%, #4F4E4D 66.22%, #484037 85.32%);
   /* --white: #EEECEA; */
-  --white: #e4e4e4;
+  --white: #DBD5D4;
   --showblue: rgba(0, 0, 0, 0.36); 
-  --showwhile: rgba(250, 250, 250, 0.6);
+  --showwhile: rgba(255, 255, 255, 0.32);
   --txtwhite: #8A8B8C;
   --txtblue: #FFFFFF;
   --Ltitle: #9F9F9F;
-  --BTtitle: #FFDEA5;
-  --BHtitle: #A3BBD6;
-  --LTChart: #ECDBC8;
-  --LHChart: #C1D9EA;
-  --BTChart: #FFDEA5;
-  --BHChart: #A3BBD6;
+  --BTtitle: #F3BE97;
+  --BHtitle: #898DAE;
+  --LTChart: #F3BE97;
+  --LHChart: #898DAE;
+  --BTChart: #F3BE97;
+  --BHChart: #B3B8E2;
 }
 
 body.light {
@@ -22,11 +22,11 @@ body.light {
   --showbg: var(--showwhile);
   --Ttitle: var(--Ltitle);
   --Htitle: var(--Ltitle);
-  --Timage: url("./image/heat_light.png");
-  --Himage: url("./image/humidity_light.png");
-  --TChart: var(--txtwhite);
+  --Timage: url("./image/heat.png");
+  --Himage: url("./image/humidity.png");
+  --TChart: var(--BTtitle);
   --HChart: var(--LHChart);
-  --HYChart: var(--txtwhite);
+  --HYChart: var(--LHChart);
 }
 
 body.dark {
@@ -50,7 +50,7 @@ body.dark {
 #chartX{
   stroke: var(--text-color);
   fill: var(--text-color);
-  stroke-width: 1;
+  stroke-width: 0.3;
 }
 
 #chartYt{
@@ -204,12 +204,12 @@ body.dark {
 
 .content h4:nth-child(1) {
 	color: transparent;
-	-webkit-text-stroke: 3px #FFDEA5;
+	-webkit-text-stroke: 3px #F3BE97;
   /* -webkit-text-stroke: 2px #8338ec; */
 }
 
 .content h4:nth-child(2) {
-	color: #adc0d5;
+	color: #A3BBD6;
   /* color: #c19bf5; */
 	animation: animate 4s ease-in-out infinite;
 }

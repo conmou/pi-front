@@ -16,7 +16,7 @@ class App extends React.Component {
 		};
 	}
 	componentDidMount() {
-		// fetch("https://pi-backend-bt5mbx1ej-conmou.vercel.app/min")
+		//fetch("https://pi-backend-bt5mbx1ej-conmou.vercel.app/min")
 		fetch("http://localhost:5001/min")
 			.then(res => res.json())
 			.then(json => {
@@ -92,7 +92,7 @@ class App extends React.Component {
 									<YAxis id='chartYh' unit='％' yAxisId="right-axis" dataKey='hunidity' domain={[0, 100]} orientation='right'/>
 									<Tooltip separator='=' />
 									<Legend />
-									<Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#ECDBC8'/>
+									<Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#F3BE97'/>
 									{/* <Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#FFDEA5'/> */}
 									<Line id='chartL' yAxisId="right-axis" type="monotone" dataKey="hunidity" strokeWidth={4}/>
 								</ComposedChart>

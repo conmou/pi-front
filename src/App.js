@@ -58,11 +58,11 @@ function App () {
 					</div>
 					<div class="row">
 						<div class="col-md-4">
-							<div >
+							<div className='textPart'>
 								{/* <img src='image/heat.png'/> */}
 								<p className='Ttitle'>Temperature</p>
 								<div class='d-flex justify-content-around'>
-									{/* <img src={require('./image/heat.png')} width="140" height="140"/> */}
+									<img src={require('./image/heat.png')} width="120" height="120"/>
 									<div id='Timg'></div>
 									{/* <p >{ items[items.length-1].temp }</p> */}
 									<p className='Ttext'> { temp } </p>
@@ -70,10 +70,10 @@ function App () {
 								</div>
 							</div>
 							<hr className="hr"/>
-							<div>
+							<div className='textPart'>
 								<p className='Htitle'>Humidity</p>
 								<div class='d-flex justify-content-around'>
-									{/* <img src={require('./image/humidity.png')} width="140" height="140" /> */}
+									<img src={require('./image/humidity.png')} width="120" height="120" />
 									<div id='Himg'></div>
 									{/* <p className='Htext'>{ items[items.length-1].hunidity }</p> */}
 									<p className='Htext'> { humidity } </p>
@@ -90,7 +90,7 @@ function App () {
 									<YAxis id='chartYh' unit='％' yAxisId="right-axis" dataKey='hunidity' domain={[0, 100]} orientation='right'/>
 									<Tooltip separator='=' />
 									<Legend />
-									<Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#ECDBC8'/>
+									<Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#ebc5aa'/>
 									{/* <Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#FFDEA5'/> */}
 									<Line id='chartL' yAxisId="right-axis" type="monotone" dataKey="hunidity" strokeWidth={4}/>
 								</ComposedChart>

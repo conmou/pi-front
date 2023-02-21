@@ -4,57 +4,54 @@ import { CartesianAxis, CartesianGrid, Legend, Line, LineChart, XAxis, YAxis, To
 //import { Tooltip } from 'chart.js';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import DarkMode from "./DarkMode"
+import Day from './DayAverage'
 
-class App extends React.Component {
-	// Constructor
-	constructor(props) {
-		super(props);
-		this.state = { 
-			items: [],
-			DataisLoaded: false
-		};
-	}
-	componentDidMount() {
-		//fetch("https://pi-backend-bt5mbx1ej-conmou.vercel.app/min")
-		fetch("http://localhost:5001/min")
-			.then(res => res.json())
-			.then(json => {
-				this.setState({
-					items: json,
-					DataisLoaded: true
-				});
-			})
-			.then(e => {
-				console.log("error", e)
-			})
-			console.log(this.state)
-	}
+function App () {
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+      fetch("http://localhost:5001/min")
+        .then(res => res.json())
+        .then(json => {
+			setIsLoaded(true)
+          	setItems(json)
+			},
+			// Note: it's important to handle errors here
+			// instead of a catch() block so that we don't swallow
+			// exceptions from actual bugs in components.
+			(error) => {
+			  setIsLoaded(true);
+			  setError(error);
+			}
+		)
+    },[])
 	
-	render() {
-        const { DataisLoaded, items } = this.state;
-        if (!DataisLoaded) return 
-            <div>
-                <h1> no no conmou </h1> 
-            </div>  ;
-        // const sort = items.sort(sortData)
-		// for (let index = 0; index < items.length; index++) {
-		// 	const element = items[index];
-		// 	// items.forEach(element => {
-		// 	// 	element
-		// 	// });
-		// 	return <ol key = { element.id } >
-		// 	temp: { element.temp },
-		// 	hunidity: { element.hunidity},
-		// 	date: { element.date },
-		// 	TS: {element.TS},
-		// 	min: {element.time}
-		// 	</ol>
-		// }
-
+	const list = items[9];
+	// const temp = list['temp'];
+	// console.log(temp);
+	// console.log(list['temp']);
+	let temp = 0;
+	let humidity = 0;
+	for(const key in list){
+		// console.log(key,list[key]);
+		if( key == 'temp' ){
+			temp = list[key];
+		}
+		if( key == 'hunidity' ){
+			humidity = list[key];
+		}
+	}
+	console.log(temp);
+	console.log(humidity);
         return [
             <div class="container" className="App">
+				<button onClick=''>即時資料</button>
+				<button onClick=''>歷史資料</button>
 				<DarkMode />
-				<div  className='showbg'>
+				{/* <Day /> */}
+				<div className='showbg'>
 					<div class="row" className="content">
 						<h4>T&H</h4>
 						<h4>T&H</h4>
@@ -67,7 +64,8 @@ class App extends React.Component {
 								<div class='d-flex justify-content-around'>
 									{/* <img src={require('./image/heat.png')} width="140" height="140"/> */}
 									<div id='Timg'></div>
-									<p className='Ttext'>{items[items.length-1].temp}</p>
+									{/* <p >{ items[items.length-1].temp }</p> */}
+									<p className='Ttext'> { temp } </p>
 									<p className='Tunit'>°C</p>
 								</div>
 							</div>
@@ -75,9 +73,10 @@ class App extends React.Component {
 							<div>
 								<p className='Htitle'>Humidity</p>
 								<div class='d-flex justify-content-around'>
-									<div id='Himg'></div>
 									{/* <img src={require('./image/humidity.png')} width="140" height="140" /> */}
-									<p className='Htext'>{items[items.length-1].hunidity}</p>
+									<div id='Himg'></div>
+									{/* <p className='Htext'>{ items[items.length-1].hunidity }</p> */}
+									<p className='Htext'> { humidity } </p>
 									<p className='Hunit'>％</p>
 								</div>
 							</div>
@@ -91,7 +90,7 @@ class App extends React.Component {
 									<YAxis id='chartYh' unit='％' yAxisId="right-axis" dataKey='hunidity' domain={[0, 100]} orientation='right'/>
 									<Tooltip separator='=' />
 									<Legend />
-									<Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#F3BE97'/>
+									<Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#ECDBC8'/>
 									{/* <Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#FFDEA5'/> */}
 									<Line id='chartL' yAxisId="right-axis" type="monotone" dataKey="hunidity" strokeWidth={4}/>
 								</ComposedChart>
@@ -100,11 +99,111 @@ class App extends React.Component {
 					</div>
 				</div>
             </div>
-        ];
-  }
+		]
 }
 
 export default App;
+
+// class App extends React.Component {
+// 	// Constructor
+// 	constructor(props) {
+// 		super(props);
+// 		this.state = { 
+// 			items: [],
+// 			DataisLoaded: false
+// 		};
+// 	}
+// 	componentDidMount() {
+// 		//fetch("https://pi-backend-bt5mbx1ej-conmou.vercel.app/min")
+// 		fetch("http://localhost:5001/min")
+// 			.then(res => res.json())
+// 			.then(json => {
+// 				this.setState({
+// 					items: json,
+// 					DataisLoaded: true
+// 				});
+// 			})
+// 			.then(e => {
+// 				console.log("error", e)
+// 			})
+// 			console.log(this.state)
+// 	}
+	
+// 	render() {
+//         const { DataisLoaded, items } = this.state;
+//         if (!DataisLoaded) return 
+//             <div>
+//                 <h1> no no conmou </h1> 
+//             </div>  ;
+//         // const sort = items.sort(sortData)
+// 		// for (let index = 0; index < items.length; index++) {
+// 		// 	const element = items[index];
+// 		// 	// items.forEach(element => {
+// 		// 	// 	element
+// 		// 	// });
+// 		// 	return <ol key = { element.id } >
+// 		// 	temp: { element.temp },
+// 		// 	hunidity: { element.hunidity},
+// 		// 	date: { element.date },
+// 		// 	TS: {element.TS},
+// 		// 	min: {element.time}
+// 		// 	</ol>
+// 		// }
+
+//         return [
+//             <div class="container" className="App">
+// 				<DarkMode />
+// 				<div  className='showbg'>
+// 					<div class="row" className="content">
+// 						<h4>T&H</h4>
+// 						<h4>T&H</h4>
+// 					</div>
+// 					<div class="row">
+// 						<div class="col-md-4">
+// 							<div >
+// 								{/* <img src='image/heat.png'/> */}
+// 								<p className='Ttitle'>Temperature</p>
+// 								<div class='d-flex justify-content-around'>
+// 									{/* <img src={require('./image/heat.png')} width="140" height="140"/> */}
+// 									<div id='Timg'></div>
+// 									<p className='Ttext'>{items[items.length-1].temp}</p>
+// 									<p className='Tunit'>°C</p>
+// 								</div>
+// 							</div>
+// 							<hr className="hr"/>
+// 							<div>
+// 								<p className='Htitle'>Humidity</p>
+// 								<div class='d-flex justify-content-around'>
+// 									<div id='Himg'></div>
+// 									{/* <img src={require('./image/humidity.png')} width="140" height="140" /> */}
+// 									<p className='Htext'>{items[items.length-1].hunidity}</p>
+// 									<p className='Hunit'>％</p>
+// 								</div>
+// 							</div>
+// 						</div>
+// 						<div class="col-md-8">
+// 							<ResponsiveContainer width="100%" height="100%">
+// 								<ComposedChart  data={items} >
+// 									<CartesianGrid id='chart' strokeDasharray="5 5" strokeWidth={2}/>
+// 									<XAxis id='chartX' dataKey="time" />
+// 									<YAxis id='chartYt' unit='°C' yAxisId="left-axis" dataKey='temp' domain={[0, 50]} />
+// 									<YAxis id='chartYh' unit='％' yAxisId="right-axis" dataKey='hunidity' domain={[0, 100]} orientation='right'/>
+// 									<Tooltip separator='=' />
+// 									<Legend />
+// 									<Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#F3BE97'/>
+// 									{/* <Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#FFDEA5'/> */}
+// 									<Line id='chartL' yAxisId="right-axis" type="monotone" dataKey="hunidity" strokeWidth={4}/>
+// 								</ComposedChart>
+// 							</ResponsiveContainer>
+// 						</div>
+// 					</div>
+// 				</div>
+//             </div>
+//         ];
+//   }
+// }
+
+// export default App;
 
 // function App() {
 // 	return (

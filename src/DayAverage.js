@@ -4,6 +4,7 @@ import { CartesianAxis, CartesianGrid, Legend, Line, LineChart, XAxis, YAxis, To
 //import { Tooltip } from 'chart.js';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import DarkMode from "./DarkMode"
+import { Link } from 'react-router-dom';
 
 function Day () {
     const [error, setError] = useState(null);
@@ -45,6 +46,16 @@ function Day () {
 	console.log(temp);
 	console.log(humidity);
         return [
+            // <div class="container" className="App">
+                <div class="row justify-content-end">
+                    <div class="col-4">
+                        <DarkMode />
+                    </div>
+                    <div class="col-4">
+                        <Link to="/min"><button className='minBtn'>即時資料</button></Link>
+                        <Link to="/day"><button className='dayBtn'>歷史資料</button></Link>
+                    </div>
+                </div>,
 				<div className='showbg'>
 					<div class="row" className="content">
 						<h4>T&H</h4>
@@ -92,6 +103,7 @@ function Day () {
 						</div>
 					</div>
 				</div>
+            // </div>
         ]
 }
 

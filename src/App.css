@@ -110,6 +110,17 @@ body.dark {
   padding: 5%;
 }
 
+.minBtn{
+  padding: 2%;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.dayBtn{
+  padding: 2%;
+  font-size: 20px;
+  border-radius: 5px;
+}
 .textPart{
   max-width:360px;
   margin-left: auto;

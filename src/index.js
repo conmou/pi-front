@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Day from './DayAverage'
 import reportWebVitals from './reportWebVitals';
 import { Route, Routes, BrowserRouter, Router } from 'react-router-dom';
 

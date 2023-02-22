@@ -65,7 +65,7 @@ function Min () {
                         <DarkMode />
                     </div>
                     <div class="col-4">
-                        <Link to="/min"><button className='minBtn'>即時資料</button></Link>
+                        <Link to="/"><button className='minBtn'>即時資料</button></Link>
                         <Link to="/day"><button className='dayBtn'>歷史資料</button></Link>
                     </div>
                 </div>,

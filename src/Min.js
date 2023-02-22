@@ -12,7 +12,7 @@ function Min () {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-		fetch("http://localhost:5001/min")
+		fetch("https://pi-backend-jw6l6e6cr-conmou.vercel.app/min")
         .then(res => res.json())
         .then(json => {
 			setIsLoaded(true)

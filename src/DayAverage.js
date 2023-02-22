@@ -11,7 +11,7 @@ function Day () {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-      fetch("http://localhost:5001/day")
+      fetch("https://pi-backend-jw6l6e6cr-conmou.vercel.app/day")
         .then(res => res.json())
         .then(json => {
 			setIsLoaded(true)

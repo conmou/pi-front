@@ -8,6 +8,7 @@ import { Link, HashRouter, Route, Routes } from 'react-router-dom';
 import Day from './DayAverage'
 import Min from './Min';
 
+
 function App () {
     return(
 		<div class="container" className="App">

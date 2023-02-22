@@ -7,11 +7,11 @@
   --txtwhite: #8A8B8C;
   --txtblue: #FFFFFF;
   --Ltitle: #9F9F9F;
-  --BTtitle: #F3BE97;
+  --BTtitle: #ebc5aa;
   --BHtitle: #898DAE;
-  --LTChart: #F3BE97;
+  --LTChart: #ebc5aa;
   --LHChart: #898DAE;
-  --BTChart: #F3BE97;
+  --BTChart: #ebc5aa;
   --BHChart: #B3B8E2;
 }
 
@@ -22,8 +22,8 @@ body.light {
   --showbg: var(--showwhile);
   --Ttitle: var(--Ltitle);
   --Htitle: var(--Ltitle);
-  --Timage: url("./image/heat.png");
-  --Himage: url("./image/humidity.png");
+  /* --Timage: url("./image/heat.png");
+  --Himage: url("./image/humidity.png"); */
   --TChart: var(--BTtitle);
   --HChart: var(--LHChart);
   --HYChart: var(--LHChart);
@@ -36,15 +36,15 @@ body.dark {
   --showbg: var(--showblue);
   --Ttitle: var(--BTtitle);
   --Htitle: var(--BHtitle);
-  --Timage: url("./image/heat.png");
-  --Himage: url("./image/humidity.png");
+  /* --Timage: url("./image/heat.png");
+  --Himage: url("./image/humidity.png"); */
   --TChart: var(--BTChart);
   --HChart: var(--BHChart);
   --HYChart: var(--BHChart)
 }
 #chart{
   stroke: var(--text-color);
-  stroke-width: 1;
+  stroke-width: 0.7;
 }
 
 #chartX{
@@ -121,6 +121,12 @@ body.dark {
   font-size: 20px;
   border-radius: 5px;
 }
+.textPart{
+  max-width:360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* .Title{
   background-color: #ffffffe3;
   color: rgba(0, 0, 0, 0.645);
@@ -162,12 +168,13 @@ body.dark {
   font-size: 80px;
   color: var(--text-color);
   border-radius: 10px;
+  padding: 0px 12px;
 }
 
 .Tunit{
   color: #C2C2C2;
-  font-size: 50px;
-  padding-top: 50px;
+  font-size: 40px;
+  margin-top: 44px;
 }
 
 /* ----------------濕度---------------- */
@@ -181,12 +188,13 @@ body.dark {
   font-size: 80px;
   color: var(--text-color);
   border-radius: 10px;
+  padding: 0px 12px;
 }
 
 .Hunit{
   color: #C2C2C2;
-  font-size: 50px;
-  padding-top: 50px;
+  font-size: 40px;
+  margin-top: 44px;
 }
 
 /* --------------------------url-------------------------- */
@@ -200,16 +208,17 @@ body.dark {
 }
 
 .content {
-	height: 60px;
+	height: 80px;
   padding-left: 7%;
   margin:0 auto;
+  /* text-align: right; */
 }
 
 .content h4 {
 	color: #fff;
-	font-size: 7em;
+	font-size: 5em;
 	position: absolute;
-	transform: translate(50%, -50%);
+	/* transform: translate(50%, -50%); */
   text-align:right;
 }
 
@@ -220,7 +229,7 @@ body.dark {
 }
 
 .content h4:nth-child(2) {
-	color: #A3BBD6;
+	color: #898DAE;
   /* color: #c19bf5; */
 	animation: animate 4s ease-in-out infinite;
 }

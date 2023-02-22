@@ -4,8 +4,7 @@ import { CartesianAxis, CartesianGrid, Legend, Line, LineChart, XAxis, YAxis, To
 //import { Tooltip } from 'chart.js';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import DarkMode from "./DarkMode"
-import { Link } from 'react-router-dom';
-// import Day from './DayAverage'
+import {   useLoaderData,Link } from 'react-router-dom';
 
 function Min () {
     const [error, setError] = useState(null);
@@ -13,7 +12,7 @@ function Min () {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-      fetch("http://localhost:5001/min")
+		fetch("http://localhost:5001/min")
         .then(res => res.json())
         .then(json => {
 			setIsLoaded(true)
@@ -26,8 +25,8 @@ function Min () {
 			  setIsLoaded(true);
 			  setError(error);
 			}
-		)
-    },[])
+			)
+	},[])
 	const list = items[9];
 	// const temp = list['temp'];
 	// console.log(temp);

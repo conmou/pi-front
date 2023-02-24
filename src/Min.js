@@ -4,8 +4,7 @@ import { CartesianAxis, CartesianGrid, Legend, Line, LineChart, XAxis, YAxis, To
 //import { Tooltip } from 'chart.js';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import DarkMode from "./DarkMode"
-import { Link } from 'react-router-dom';
-// import Day from './DayAverage'
+import {   useLoaderData,Link } from 'react-router-dom';
 
 function Min () {
     const [error, setError] = useState(null);
@@ -13,7 +12,7 @@ function Min () {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-      fetch("http://localhost:5001/min")
+		fetch("https://pi-backend-jw6l6e6cr-conmou.vercel.app/min")
         .then(res => res.json())
         .then(json => {
 			setIsLoaded(true)
@@ -26,8 +25,8 @@ function Min () {
 			  setIsLoaded(true);
 			  setError(error);
 			}
-		)
-    },[])
+			)
+	},[])
 	const list = items[9];
 	// const temp = list['temp'];
 	// console.log(temp);
@@ -64,8 +63,8 @@ function Min () {
                     <div class="col-2">
                         <DarkMode />
                     </div>
-                    <div class="col-6">
-                        <Link to="/min"><button className='minBtn'>即時資料</button></Link>
+                    <div class="col-4">
+                        <Link to="/"><button className='minBtn'>即時資料</button></Link>
                         <Link to="/day"><button className='dayBtn'>歷史資料</button></Link>
                     </div>
                 </div>,

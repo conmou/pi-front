@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { CartesianAxis, CartesianGrid, Legend, Line, LineChart, XAxis, YAxis, Tooltip, BarChart, Bar, ResponsiveContainer, ComposedChart, Area} from 'recharts';
-//import { Tooltip } from 'chart.js';
+import { CartesianGrid, Legend, Line, XAxis, YAxis, Tooltip, Bar, ResponsiveContainer, ComposedChart} from 'recharts';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import DarkMode from "./DarkMode"
 import { Link } from 'react-router-dom';
@@ -12,7 +11,7 @@ function Day () {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-      fetch("http://localhost:5001/day")
+      fetch("https://pi-backend-jw6l6e6cr-conmou.vercel.app/day")
         .then(res => res.json())
         .then(json => {
 			setIsLoaded(true)
@@ -28,6 +27,7 @@ function Day () {
 		)
     },[])
 	const list = items[4];
+	console.log(items);
 	// const temp = list['temp'];
 	// console.log(temp);
 	// console.log(list['temp']);
@@ -42,17 +42,15 @@ function Day () {
 			humidity = list[key];
 		}
 	}
-	
-	console.log(temp);
-	console.log(humidity);
+	// console.log(humidity);
         return [
             // <div class="container" className="App">
                 <div class="row justify-content-end">
                     <div class="col-2">
                         <DarkMode />
                     </div>
-                    <div class="col-6">
-                        <Link to="/min"><button className='minBtn'>即時資料</button></Link>
+                    <div class="col-4">
+                        <Link to="/"><button className='minBtn'>即時資料</button></Link>
                         <Link to="/day"><button className='dayBtn'>歷史資料</button></Link>
                     </div>
                 </div>,

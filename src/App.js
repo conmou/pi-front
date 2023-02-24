@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from 'react';
 import './App.css';
-// import { CartesianAxis, CartesianGrid, Legend, Line, LineChart, XAxis, YAxis, Tooltip, BarChart, Bar, ResponsiveContainer, ComposedChart, Area} from 'recharts';
-//import { Tooltip } from 'chart.js';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import DarkMode from "./DarkMode"
-import { Link, HashRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Day from './DayAverage'
 import Min from './Min';
+
 
 function App () {
     return(
 		<div class="container" className="App">
 			<Routes>
-				<Route path="/day" element={ <Day />} />
-				<Route path="/min" element={ <Min />} />
+				<Route path="/day" element={ <Day /> } />
+				<Route path="/" element={ <Min /> } />
 			</Routes>
 		</div>
 	)

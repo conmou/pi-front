@@ -48,10 +48,10 @@ function Day () {
         return [
             // <div class="container" className="App">
                 <div class="row justify-content-end">
-                    <div class="col-4">
+                    <div class="col-2">
                         <DarkMode />
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <Link to="/min"><button className='minBtn'>即時資料</button></Link>
                         <Link to="/day"><button className='dayBtn'>歷史資料</button></Link>
                     </div>
@@ -63,11 +63,11 @@ function Day () {
 					</div>
 					<div class="row">
 						<div class="col-md-4">
-							<div >
+							<div className='dayTextPart'>
 								{/* <img src='image/heat.png'/> */}
 								<p className='Ttitle'>Temperature</p>
 								<div class='d-flex justify-content-around'>
-									{/* <img src={require('./image/heat.png')} width="140" height="140"/> */}
+									<img src={require('./image/heat.png')} width="120" height="120"/>
 									<div id='Timg'></div>
 									{/* <p >{ items[items.length-1].temp }</p> */}
 									<p className='Ttext'> { temp } </p>
@@ -75,10 +75,10 @@ function Day () {
 								</div>
 							</div>
 							<hr className="hr"/>
-							<div>
+							<div className='dayTextPart'>
 								<p className='Htitle'>Humidity</p>
 								<div class='d-flex justify-content-around'>
-									{/* <img src={require('./image/humidity.png')} width="140" height="140" /> */}
+									<img src={require('./image/humidity.png')} width="120" height="120" />
 									<div id='Himg'></div>
 									{/* <p className='Htext'>{ items[items.length-1].hunidity }</p> */}
 									<p className='Htext'> { humidity } </p>
@@ -95,7 +95,7 @@ function Day () {
 									<YAxis id='chartYh' unit='％' yAxisId="right-axis" dataKey='hunidity' domain={[0, 100]} orientation='right'/>
 									<Tooltip separator='=' />
 									<Legend />
-									<Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#ECDBC8'/>
+									<Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#ebc5aa'/>
 									{/* <Bar id='chartB' yAxisId="left-axis" dataKey="temp" barSize={30} fill='#FFDEA5'/> */}
 									<Line id='chartL' yAxisId="right-axis" type="monotone" dataKey="hunidity" strokeWidth={4}/>
 								</ComposedChart>

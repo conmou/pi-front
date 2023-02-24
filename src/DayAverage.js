@@ -45,20 +45,22 @@ function Day () {
 	// console.log(humidity);
         return [
             // <div class="container" className="App">
-                <div class="row justify-content-end">
-                    <div class="col-2">
+				<div>
+					<div  className="content">
+						<h4>T&H</h4>
+						<h4>T&H</h4>
+					</div>
+				</div>,
+                <div class="d-flex justify-content-end">
+                    <div >
                         <DarkMode />
                     </div>
-                    <div class="col-4">
+                    <div >
                         <Link to="/"><button className='minBtn'>即時資料</button></Link>
                         <Link to="/day"><button className='dayBtn'>歷史資料</button></Link>
                     </div>
                 </div>,
 				<div className='showbg'>
-					<div class="row" className="content">
-						<h4>T&H</h4>
-						<h4>T&H</h4>
-					</div>
 					<div class="row">
 						<div class="col-md-4">
 							<div className='dayTextPart'>

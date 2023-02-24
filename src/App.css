@@ -27,6 +27,8 @@ body.light {
   --TChart: var(--BTtitle);
   --HChart: var(--LHChart);
   --HYChart: var(--LHChart);
+  --minBtnText: var(--showblue);
+  --minBtnBg: var(--showwhile);
 }
 
 body.dark {
@@ -40,7 +42,9 @@ body.dark {
   --Himage: url("./image/humidity.png"); */
   --TChart: var(--BTChart);
   --HChart: var(--BHChart);
-  --HYChart: var(--BHChart)
+  --HYChart: var(--BHChart);
+  --minBtnText: var(--white);
+  --minBtnBg: var(--showblue);
 }
 #chart{
   stroke: var(--text-color);
@@ -101,6 +105,7 @@ body.dark {
   background: var(--background-color);
   color: var(--text-color);
   font-weight: var(--font-weight);
+  min-width:380px;
 }
 
 .showbg{
@@ -113,16 +118,22 @@ body.dark {
 .minBtn{
   padding: 8px 20px;
   margin: 4px 10px;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 600;
   border-radius: 5px;
   border: 0;
-  background-color: rgba(255, 255, 255, 0.46);
+  color: var(--minBtnText);
+  background-color: var(--minBtnBg);
 }
 
 .dayBtn{
   padding: 8px 20px;
-  font-size: 20px;
+  font-size:16px;
+  font-weight: 600;
   border-radius: 5px;
+  border: 0;
+  color: var(--minBtnText);
+  background-color: var(--minBtnBg);
 }
 
 .minTextPart{
@@ -157,13 +168,6 @@ body.dark {
   -webkit-mask-image: var(--mask-image);
   mask-image: var(--mask-image);
   border-radius: 10px;
-  /* ----------------酷立體---------------- */
-  /* border: 0;
-  padding-top: 10px;
-  color: #FFFFFF;
-  border-top: 1px solid rgba(0,0,0,.1);
-  box-shadow: inset 0 15px 15px -10px;
-  border-radius: 5px; */
 }
 
 /* ----------------溫度----------------*/
@@ -218,23 +222,25 @@ body.dark {
 }
 
 .content {
-	/* height: 80px; */
+	height: auto;
+  width: auto;
   /* padding-left: 7%; */
   margin:0 auto;
   /* text-align: right; */
+  position: relative;
 }
 
 .content h4 {
 	color: #fff;
-	font-size: 5em;
+	font-size: 4.2em;
 	position: absolute;
-	/* transform: translate(0, -160px); */
-  /* text-align:left; */
+	transform: translate(16%, -30px);
+  /* text-align:center; */
 }
 
 .content h4:nth-child(1) {
 	color: transparent;
-	-webkit-text-stroke: 3px #F3BE97;
+	-webkit-text-stroke: 2px #F3BE97;
   /* -webkit-text-stroke: 2px #8338ec; */
 }
 
@@ -279,53 +285,3 @@ ResponsiveContainer{
   width: 60%;
 }
 
-
-/* .chartBox{
-  flex: auto;
-    width: 100%;
-    padding: 10px;
-    border-radius: 20px;
-    border: solid 3px rgba(177, 186, 158, 0);
-    background: rgba(255, 255, 255, 0);
-}
-
-.chartPart{
-  height:400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
